@@ -106,7 +106,7 @@ export default {
 				// Workaround to add the current user to the suggestions if they are not already in the list+
 				// https://github.com/nextcloud/server/issues/48180
 				const currentUser = getCurrentUser()
-				if (shareTypes.includes(this.SHARE_TYPES.SHARE_TYPE_USER) && !rawSuggestions.find(suggestion => suggestion.id === currentUser.uid)) {
+				if (shareTypes.includes(this.SHARE_TYPES.SHARE_TYPE_USER) && !rawSuggestions.find(suggestion => suggestion.id === currentUser.uid && suggestion.type === this.SHARE_TYPES.SHARE_TYPE_USER)) {
 					rawSuggestions.push({
 						id: currentUser.uid,
 						type: this.SHARE_TYPES.SHARE_TYPE_USER,
